@@ -18,11 +18,11 @@ Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/
 
 - Obtain defective location based on anomaly images and corresponding masks: (*The relevant language descriptions and corresponding image information will be stored as .jsonl files.*)
     ```shell
-    python location_describer.py --classname bottle --dataset ./dataset --outdir ./script
+    python location_describer.py --classname bottle --dataset_dir ./dataset --outdir ./script
     ```
 - Transfer masks in dataset to bounding box:
     ```shell
-    python boundbox.py --classname bottle --dataset ./dataset  
+    python boundbox.py --classname bottle --dataset_dir ./dataset  
 
 ## Stage 2: Diffusion Training Process
 - Before training the model, please download the [diffusion v1-5 inpainting checkpoint](https://huggingface.co/runwayml/stable-diffusion-v1-5) and place the files under ```./checkpoints```. 
@@ -46,13 +46,14 @@ Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/
 ## Stage 3: Anomaly Image Synthesis
 - Generate 100 random bounding box and its language descriptions:
   ```shell
-  python random_box.py --classname bottle --dataset ./dataset --outdir ./output/dataset/mask --num 100
+  python random_box.py --classname bottle --dataset_dir ./dataset --outdir ./output/dataset/mask --num 100
   ```
   
 - Generate 100 anomaly images with previous saved bounding box: 
     ```shell
-    python inpainting.py --classname bottle --dataset ./dataset  --output ./output/dataset/ --num 100 \
-    --num_inference_steps 20 --guidance_scale 3.5 --extract_mask
+    python inpainting.py --classname bottle --dataset_dir ./dataset  --output ./output/dataset/ --num 100 \
+    --num_inference_steps 20 --guidance_scale 3.5 --extract_mask \
+    --checkpoint_dir ./checkpoints --lora_dir ./ouput/bottle/
         
     # You may also try different values for the following settings
     # --seeds: specify the random seeds to be used
