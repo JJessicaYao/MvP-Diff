@@ -28,9 +28,10 @@ Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/
 - Before training the model, please download the [diffusion v1-5 inpainting checkpoint](https://huggingface.co/runwayml/stable-diffusion-v1-5) and place the files under ```./checkpoints```. 
 - Train the MvP-Diff model to generate anomaly images with text description and bounding box:
     ```shell
-    python train_diffusion.py --pretrained_model_name_or_path checkpoints/inpainting --train_data_dir ./dataset/bottle \
+    python train_diffusion.py --classname --pretrained_model_name_or_path ./checkpoints --train_data_dir ./dataset \
      --train_batch_size 6   --gradient_accumulation_steps 4  --num_train_epochs 1000 --checkpointing_steps 500 \
-     --learning_rate 1e-07  --lr_scheduler constant  --seed 0 --validation_epochs 100 --validation_file ./script/bottle/bottle_test.jsonl  \
+     --learning_rate 1e-07  --lr_scheduler constant  --seed 0 --validation_epochs 100 \
+     --validation_file JSONL_FILE_NEED_TO_TEST  \
      --output_dir ./output  --prediction_type epsilon  --scale_lr --snr_gamma 10 \
     
     # You may also try different values for the following settings
