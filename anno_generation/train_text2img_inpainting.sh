@@ -1,0 +1,22 @@
+accelerate launch anno_generation/train_text_to_image_inpaint.py \
+ --pretrained_model_name_or_path="./checkpoints" \
+ --train_data_dir='./dataset/' \
+ --image_column="image" \
+ --caption_column="text" \
+ --resolution=512 \
+ --mixed_precision="fp16" \
+ --train_batch_size=6 \
+ --gradient_accumulation_steps=4 \
+ --num_train_epochs=1000 \
+ --checkpointing_steps=500 \
+ --learning_rate=1e-07 \
+ --lr_scheduler="constant" \
+ --seed=0 \
+ --validation_epochs=100 \
+ --validation_file="./script/bottle/bottle_test.jsonl" \
+ --output_dir="./output" \
+ --prediction_type='epsilon' \
+ --dataloader_num_workers=12 \
+ --revision='fp16' \
+ --scale_lr \
+ --snr_gamma=10 \
