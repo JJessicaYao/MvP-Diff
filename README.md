@@ -55,7 +55,7 @@ Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/
         
     # You may also try different values for the following settings
     # --seeds: specify the random seeds to be used
-    # --guidance_scale: the closeness of the generated image to the language descriptions, a value greater than 1
+    # --guidance_scale: a value greater than 1, reflecting the closeness of the generated image to the language descriptions
     # --num_inference_steps: the number of denoising steps
     # --strength: indicates extent to transform the reference image
     # --extract_mask: (flag) whether to extract precise mask of the defective region 
