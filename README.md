@@ -50,7 +50,7 @@ Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/
   
 - Generate 100 anomaly images with previous saved bounding box: 
     ```shell
-    python inpainting.py --classname bottle --dataset ./dataset  --output ./output/dataset/image --num 100 \
+    python inpainting.py --classname bottle --dataset ./dataset  --output ./output/dataset/ --num 100 \
     --num_inference_steps 20 --guidance_scale 3.5 --extract_mask
         
     # You may also try different values for the following settings
