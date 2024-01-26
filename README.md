@@ -40,7 +40,7 @@ Download the [MVTec Anomaly Detection (MVTec AD)](https://www.mvtec.com/company/
     ```
 - Or you can use accelerator to speed up model training:
     ```shell
-    sh train_diffusion.sh
+    sh anno_generation/train_diffusion.sh
     ```
 
 ## Stage 3: Anomaly Image Synthesis
