@@ -21,11 +21,9 @@ def dense_crf(img, probs, n_labels=2):
         w = probs.shape[1]
 
         probs = np.expand_dims(probs, 0)
-        # 概率作为unary， 通道数和类别数相同
         probs = np.append(1 - probs, probs, axis=0)
 
         d = dcrf.DenseCRF2D(w, h, n_labels)
-        # unary 为负对数概率
         U = -np.log(probs)
         U = U.reshape((n_labels, -1))
         U = np.ascontiguousarray(U)
@@ -34,11 +32,10 @@ def dense_crf(img, probs, n_labels=2):
         U = U.astype(np.float32)
         d.setUnaryEnergy(U) 
 
-        d.addPairwiseGaussian(sxy=2, compat=3)  #
+        d.addPairwiseGaussian(sxy=2, compat=3) 
         d.addPairwiseBilateral(sxy=2, srgb=5, rgbim=img, compat=3)
 
         Q = d.inference(1)
-        # 获得map对应的标签
         Q = np.argmax(np.array(Q), axis=0).reshape((h, w))
 
         return Q
@@ -46,7 +43,7 @@ def dense_crf(img, probs, n_labels=2):
 
 def remove_area(mask):
     contours, _ = cv2.findContours(np.uint8(mask*255), cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-    n = len(contours)  # 轮廓的个数
+    n = len(contours)  
     cv_contours = []
     areas = []
     for contour in contours:
