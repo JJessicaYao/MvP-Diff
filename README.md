@@ -1,5 +1,5 @@
 #  Multivariate yet Precise Diffusion Model (MvP-Diff)
-![](./main.png)
+<!-- ![](./main.png)
 
 This repository is the official implementation of the following paper:
 
@@ -7,7 +7,7 @@ This repository is the official implementation of the following paper:
 
 > **Abstract**<br>
 > <font size=3> *This paper delves into the simultaneous synthesis of anomaly image samples and their corresponding segmentation labels, addressing the challenge of limited anomaly data. Previous generative approaches relied heavily on the precise yet sparse masks, available from the given dataset, to guide the synthesis of anomaly images. This reliance restricted the variety of the guidance masks, leading to a lack of diversity in the synthesized defective areas. Furthermore, the simplistic strategy of directly employing guidance masks as labels for synthesized images has frequently led to the mask drift issue. To overcome these constraints, we introduce the Multivariate yet Precise Diffusion model (MvP-Diff). This model initiates the synthesis process by producing a diverse array of random bounding boxes. Within these boxes, MvP-Diff further creates multivariate defective regions with varying sizes, shapes, and patterns based on defect-free images. By comparing the differences between the anomaly and normal images, we can obtain more precise mask labels for the defective regions, effectively mitigating the mask drift phenomenon. Extensive experiments demonstrate that MvP-Diff outperforms existing methods in producing realistic and diverse anomaly samples. Moreover, following the training of existing anomaly detection and segmentation methods with our synthesized samples, an approximate 10\% enhancement in IoU can be observed.* </font>
-
+-->
 
 ## Dataset
 
