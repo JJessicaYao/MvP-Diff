@@ -1,6 +1,6 @@
 #  Multivariate yet Precise Diffusion Model (MvP-Diff)
 
-##　Only for the reviewers to check the code detail
+## Only for the reviewers to check the code detail
 <!-- ![](./main.png)
 
 This repository is the official implementation of the following paper:
