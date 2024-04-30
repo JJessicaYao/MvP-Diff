@@ -1,5 +1,3 @@
-%#  Multivariate yet Precise Diffusion Model (MvP-Diff)
-
 # Only for the reviewers to check the code detail
 <!-- ![](./main.png)
 
